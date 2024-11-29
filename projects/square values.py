@@ -15,4 +15,3 @@ while True:
         break
 print("the even numbers are", even)
 print("the odd numbers are", odd)
-
