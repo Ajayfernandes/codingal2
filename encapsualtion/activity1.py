@@ -6,4 +6,5 @@ class Myclass:
         print(Myclass.__privateVar)
 obj = Myclass()
 obj.hello()
-obj.__privMeth()
+obj.__privMeth() # this will generate an error as a private method cannot be directly accessed from
+                 #outside the class
