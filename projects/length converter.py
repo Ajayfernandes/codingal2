@@ -1,17 +1,17 @@
 import tkinter as tk
 
-def fahrenheit_to_celcius():
-    fahrenheit = ent_temperature.get()
-    celsius = (5/9) * (float(fahrenheit) - 32)
-    lbl_result["text"] = f"{round(celsius, 2)} \N{DEGREE CELSIUS}"
+def inches_to_cm():
+    inches = ent_length.get()
+    cm = inches * 2.54
+    lbl_result["text"] = f"{round(cm, 2)} \N{CM INCHES}"
 
 window = tk.Tk()
-window.title('temperature converter')
+window.title('legth converter')
 window.resizable(width=False, height = False )
 
 frm_entry = tk.frame(master = window)
 ent_temperature = tk.Entry(master = frm_entry, width = 10)
-lbl_temp = tk.Lable(master = frm_entry, text = "\N{DEGREE FAHRENHEIT }" )
+lbl_temp = tk.Lable(master = frm_entry, text = "\N{CM INCHES}" )
 
 ent_temperature.grid(row = 0, column = 0, sticky = 'e')
 lbl_temp.grid(row = 0, column = 1, sticky = 'w')
@@ -23,9 +23,9 @@ master=window,
 
 text="-->",
 
-command=fahrenheit_to_celcius
+command=inches_to_cm
 )
-lbl_result = tk.Label(master=window, text="\N{DEGREE CELSIUS}")
+lbl_result = tk.Label(master=window, text="\N{CM INCHES}")
 
 # Set-up the layout using the .grid() geometry manager
 
