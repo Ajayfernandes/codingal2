@@ -10,10 +10,10 @@ window.title('legth converter')
 window.resizable(width=False, height = False )
 
 frm_entry = tk.frame(master = window)
-ent_temperature = tk.Entry(master = frm_entry, width = 10)
+ent_length = tk.Entry(master = frm_entry, width = 10)
 lbl_temp = tk.Lable(master = frm_entry, text = "\N{CM INCHES}" )
 
-ent_temperature.grid(row = 0, column = 0, sticky = 'e')
+ent_length.grid(row = 0, column = 0, sticky = 'e')
 lbl_temp.grid(row = 0, column = 1, sticky = 'w')
 
 
