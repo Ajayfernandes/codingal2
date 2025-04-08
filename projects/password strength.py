@@ -1,9 +1,9 @@
 from tkinter import *
 from tkinter import messagebox
-from pip import Image, ImageTk
+from PIL import Image, ImageTk
 
 root = Tk()
-root.title('Denomination Counter')
+root.title('Password strength check')
 root.configure(bg='light blue')
 root.geometry('650x400')
 
@@ -14,13 +14,13 @@ label = Label(root, image=image, bg='light blue')
 label.place(x=180, y=20)
 
 label1 = Label(root,
-               text="Hey User! Welcome to Denomination Counter Application.",
+               text="Hey User! Welcome to the password strenght checking Application.",
                bg='light blue')
 label1.place(relx=0.5, y=340, anchor=CENTER)
 
 def msg():
     MsgBox = messagebox.showinfo(
-        "Alert", "Do you want to calculate the denomination count?")
+        "Alert", "Do you want to check your password strength?")
     if MsgBox == 'ok':
         topwin()
 
@@ -33,14 +33,14 @@ button1.place(x=260, y=360)
 
 def topwin():
     top = Toplevel()
-    top.title("Denominations Calculator")
+    top.title("password strgth  checker")
     top.configure(bg='light grey')
     top.geometry("600x350+50+50")
     
 
-    label = Label(top, text="Enter total amount", bg='light grey')
+    label = Label(top, text="Enter password here:", bg='light grey')
     entry = Entry(top)
-    lbl = Label(top, text="Here are number of notes for each denomination", bg='light grey')
+    lbl = Label(top, text="Here is you password strength ", bg='light grey')
 
     l1 = Label(top, text="2000", bg='light grey')
     l2 = Label(top, text="500", bg='light grey')
@@ -50,27 +50,17 @@ def topwin():
     t2 = Entry(top)
     t3 = Entry(top)
 
-    def calculator():
+    def check():
         try:
-            global amount
-            amount = int(entry.get())
-            note2000 = amount // 2000
-            amount %= 2000
-            note500 = amount // 500
-            amount %= 500
-            note100 = amount // 100
-
-            t1.delete(0, END)
-            t2.delete(0, END)
-            t3.delete(0, END)
-
-            t1.insert(END, str(note2000))
-            t2.insert(END, str(note500))
-            t3.insert(END, str(note100))
+            password = int(entry.get())
+            if len(password) >= 8:
+                print("your password is strong.")
+            else: 
+                print("your password is weak")
         except ValueError:
             messagebox.showerror("Error", "Please enter a valid number.")
 
-    btn = Button(top, text ='Calculate', command = calculator, bg ='brown', fg ='white')
+    btn = Button(top, text ='check', command = check, bg ='brown', fg ='white')
 
     label.place(x=230, y=50   )
     entry.place(x=200, y=80   )
